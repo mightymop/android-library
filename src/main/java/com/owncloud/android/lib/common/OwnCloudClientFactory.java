@@ -206,7 +206,7 @@ public class OwnCloudClientFactory {
         // TODO avoid calling to getUserData here
         String userId = am.getUserData(account, AccountUtils.Constants.KEY_USER_ID);
         String username = AccountUtils.getUsernameForAccount(account);
-        String password = am.peekAuthToken(account, AccountTypeUtils.getAuthTokenTypePass(account.type));
+        String password = am.blockingGetAuthToken(account,AccountTypeUtils.getAuthTokenTypePass(account.type),false);
 
         // Restore cookies
         // TODO v2 cookie handling
